@@ -1,0 +1,22 @@
+<div class="row mt-5" *ngIf="cat">
+  <div class="col-md-6 mx-auto">
+    <h2 class="text-center">Cat Detail</h2>
+    <div class="card mt-3">
+      <div class="card-body">
+        <div>
+          <div class="form-group">
+            <div class="marco1">
+                <img class="card-img-top" src="..." alt="Card image cap">
+            </div>
+            <div>
+              <label class="col-md-4"><b>First Name: </b></label> {{cat.name}}
+            </div>
+          </div>
+          <div >
+            <button style="background: #3f51b5" (click)="list()" class="btn btn-primary col-md-12 ml-1">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

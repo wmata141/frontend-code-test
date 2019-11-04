@@ -1,0 +1,30 @@
+<div class="container-fluid d-flex justify-content-center">
+  <div class="row col-lg-12 d-flex justify-content-center">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilterOrigin($event.target.value)" placeholder="Origin">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilterName($event.target.value)" placeholder="Name">
+    </mat-form-field>
+
+  </div>
+</div>
+
+<div class="container-fluid d-flex justify-content-center">
+  <div class="row col-lg-12 d-flex justify-content-center">
+
+    <div class="card" style="width: 18rem;" *ngFor="let cat of ( cats | cats: filterCats)">
+      <div (click)="catsDetail(cat.id)">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{cat.name}}</h5>
+          <p class="card-text">Origin City: {{cat.origin}}</p>
+          <p class="card-text">Life Span: {{cat.life_span}} years</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
