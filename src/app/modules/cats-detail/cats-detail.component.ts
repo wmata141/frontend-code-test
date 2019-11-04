@@ -12,6 +12,7 @@ export class CatsDetailComponent implements OnInit {
 
   id: string;
   cat: Cats;
+  image: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,15 +22,17 @@ export class CatsDetailComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    
-    this.catsService.getCat(this.id).subscribe( cat => {
-      console.log(cat)
-      this.cat = cat;
+    this.catsService.getCatWithImage(this.id).subscribe( (cat:any) => {
+      console.log("cat",cat)
+      if(cat.length){
+        this.cat = cat[0].breeds[0];
+        this.image = cat[0].url;
+      }
     }, error => console.log(error))
   }
 
   list() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/cats']);
   }
 
 }

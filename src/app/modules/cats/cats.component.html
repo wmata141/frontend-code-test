@@ -1,11 +1,20 @@
 <div class="container-fluid d-flex justify-content-center">
   <div class="row col-lg-12 d-flex justify-content-center">
     <mat-form-field>
-      <input matInput (keyup)="applyFilterOrigin($event.target.value)" placeholder="Origin">
+      <input matInput [(ngModel)]="filterCats.origin" placeholder="Origin">      
     </mat-form-field>
 
+    <mat-form-field>      
+      <input matInput [(ngModel)]="filterCats.name" placeholder="Name">
+    </mat-form-field>
+    
     <mat-form-field>
-      <input matInput (keyup)="applyFilterName($event.target.value)" placeholder="Name">
+      <mat-label>Cats per View</mat-label>
+      <mat-select [(value)]="selected" (selectionChange)="getAllCats($event.value)">        
+        <mat-option value="15">15</mat-option>
+        <mat-option value="30">30</mat-option>
+        <mat-option value="45">45</mat-option>
+      </mat-select>
     </mat-form-field>
 
   </div>
@@ -16,7 +25,7 @@
 
     <div class="card" style="width: 18rem;" *ngFor="let cat of ( cats | cats: filterCats)">
       <div (click)="catsDetail(cat.id)">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" [src]="cat.image" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{cat.name}}</h5>
           <p class="card-text">Origin City: {{cat.origin}}</p>

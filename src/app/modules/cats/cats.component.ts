@@ -15,6 +15,7 @@ export class CatsComponent implements OnInit {
   filterCats = { name: '', origin: ''};
   filterCatsName = { name: ''};
   filterCatsOrigin  = { origin: ''};
+  selected = "15";
 
   constructor(
     private catsService: CatsService,
@@ -22,19 +23,17 @@ export class CatsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAllCats();
-    // this.getCat("abys");
-    // this.getAllCatsImg();
-    // this.getAll();
-
+    this.catsService.getCatsList().subscribe((list)=>{
+      if(list.length){
+        this.cats = list;
+      }
+    });
+    this.getAllCats(this.selected);
   }
 
-  getAllCats() {
-    this.catsService.getAllCats().subscribe(cats => {
-      console.log("getAllCats", cats)
-      this.cats = cats
-      return cats
-    })
+  getAllCats(limit) {
+    this.reset();
+    this.catsService.getAllCats(limit);        
   }
 
   catsDetail(id: string) {
@@ -44,28 +43,31 @@ export class CatsComponent implements OnInit {
     })
   }
 
-  getAllCatsImg() {
-    this.catsService.getAllCatsImg().subscribe(catsImg => {
-      console.log("getAllCatsImg", catsImg);
-      return catsImg
-    })
+  reset(){
+    this.cats = [];
   }
 
-  getAll() {
-    const promises = [
-      this.catsService.getAllCats(),
-      this.catsService.getAllCatsImg()
-    ];
-    Promise.all(promises)
-      .then(data => {
-        console.log("First handler", data);
-        return data
-      })
-      .then(res => {
-        console.log("Second handler", res);
-        return res
-      });
-  }
+  // getAllCatsImg() {
+  //   this.catsService.getAllCatsImg().subscribe(catsImg => {
+  //     console.log("getAllCatsImg", catsImg);
+  //     return catsImg
+  //   })
+  // }
+
+  // getAll() {
+  //   const promises = [
+  //     this.catsService.getAllCats(),
+  //     this.catsService.getAllCatsImg()
+  //   ];
+  //   Promise.all(promises)
+  //     .then(data => {
+  //       console.log("First handler", data);
+  //       return data
+  //     })
+  //     .then(res => {
+  //       console.log("Second handler", res);
+  //       return res
+  //     });
+  // }
 
 }
-

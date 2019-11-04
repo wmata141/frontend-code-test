@@ -14,6 +14,7 @@ import { CatsDetailComponent } from './modules/cats-detail/cats-detail.component
 import { LandingComponent } from './modules/landing/landing.component';
 import { CategoriesComponent } from './modules/categories/categories.component';
 import { CategoriesDetailComponent } from './modules/categories-detail/categories-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CategoriesDetailComponent } from './modules/categories-detail/categorie
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [CatsService],
   bootstrap: [AppComponent]

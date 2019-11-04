@@ -6,30 +6,42 @@
         <div class="row mt-12">
           <div class="form-group col-md-6 mx-auto">
             <div class="marco1">
-              <img class="card-img-top" src="..." alt="Card image cap">
+              <img class="card-img-top" [src]="image" alt="Card image cap">
             </div>
           </div>
           <div class="form-group col-md-6 mx-auto">
             <div>
-              <label class="col-md-12"><b>Origin: </b></label> 
+              <label class="col-md-12"><b>Origin: </b></label>
               <label class="col-md-12">{{cat.origin}}</label>
             </div>
             <div>
-              <label class="col-md-12"><b>First Name: </b></label> 
+              <label class="col-md-12"><b>First Name: </b></label>
               <label class="col-md-12">{{cat.name}}</label>
             </div>
             <div>
-              <label class="col-md-12"><b>Life Span: </b></label> 
+              <label class="col-md-12"><b>Life Span: </b></label>
               <label class="col-md-12">{{cat.life_span}} years</label>
             </div>
           </div>
         </div>
         <div class="row mt-12">
-          <label class="col-md-12"><b>Temperament:</b></label> 
-          <label class="col-md-12">{{cat.temperament}}</label> 
-          <label class="col-md-12"><b>Description:</b></label> 
-          <label class="col-md-12">{{cat.description}}</label>   
-          <a class="col-md-12" href="{{cat.wikipedia_url}}">{{cat.wikipedia_url}}</a>
+          <label class="col-md-12"><b>Temperament:</b></label>
+          <label class="col-md-12">{{cat.temperament}}</label>
+          <label class="col-md-12"><b>Description:</b></label>
+          <label class="col-md-12">{{cat.description}}</label>
+
+          <label class="col-md-12"><b>Adaptability Level:</b></label>
+          <mat-slider min="1" max="5" step="1" value="{{cat.adaptability}}"></mat-slider>
+
+          <label class="col-md-12"><b>Affection Level:</b></label>
+          <mat-slider min="1" max="5" step="1" value="{{cat.affection_level}}"></mat-slider>
+
+          <label class="col-md-12"><b>Energy Level:</b></label>
+          <mat-slider min="1" max="5" step="1" value="{{cat.energy_level}}"></mat-slider>
+
+          <a style="margin-bottom: 10px; text-align: center;"class="col-md-12" href="{{cat.wikipedia_url}}">{{cat.wikipedia_url}}</a>
+        </div>
+        <div>
         </div>
         <div>
           <button style="background: #3f51b5" (click)="list()" class="btn btn-primary col-md-12">Back</button>
