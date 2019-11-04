@@ -1,0 +1,16 @@
+ 
+  <div class="container-fluid d-flex justify-content-center">
+    <div class="row col-lg-12 d-flex justify-content-center">
+  
+      <div class="card" style="width: 18rem;" *ngFor="let cat of cats">
+        <div (click)="categorieDetail(cat.id)">
+          <img class="card-img" src="../../../assets/images/{{cat.name}}.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{cat.name}}</h5>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
